@@ -39,7 +39,22 @@ public class Main {
                     break;
 
                 case 3:
+                    System.out.println("¿Cuántos números deseas ingresar?");
+                    int n = scanner.nextInt();
+                    int[] vector = new int[n];
 
+                    System.out.println("Ingresa los " + n + " números:");
+                    for(int i = 0; i < n; i++) {
+                        System.out.print("Número " + (i + 1) + ": ");
+                        vector[i] = scanner.nextInt();
+                    }
+
+                    Pila<Integer> resultado = ordenarVector(vector);
+
+                    System.out.println("\n--- Pila Ordenada ---");
+                    while(!resultado.pilaVacia()) {
+                        System.out.println(resultado.pop());
+                    }
 
                     break;
                 case 4:
@@ -109,7 +124,7 @@ public class Main {
                 (abre == '{' && cierre == '}');
     }
 
-    public Pila<Integer> ordenarVector(int[] vector) {
+    public static Pila<Integer> ordenarVector(int[] vector) {
         Pila<Integer> pilaOrdenada = new Pila<>(vector.length);
 
         Pila<Integer> pilaAux = new Pila<>(vector.length);
